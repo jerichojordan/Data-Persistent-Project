@@ -5,7 +5,13 @@ using UnityEngine.UI;
 
 public class MenuUIManager : MonoBehaviour
 {
-    [SerializeField] private Text inputName;
+    [SerializeField] private InputField inputName;
+    [SerializeField] private Text highScoreText;
+    void Start()
+    {
+        highScoreText.text = "Highscore: " + HighscoreManager.Instance.highscore.ToString();
+        inputName.text = HighscoreManager.Instance.highscorePlayerName;
+    }
     public void StartButtonClick()
     {
         if (!inputName.text.Equals("")) HighscoreManager.Instance.playerName = inputName.text;
